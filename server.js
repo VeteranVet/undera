@@ -97,6 +97,10 @@ app.get('/clear-logs', (req, res) => {
   }
 });
 
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'under.html'));
+});
+
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
   console.log(`Applications will be saved to: ${usersFile}`);
