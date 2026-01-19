@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en" style="height:100%; min-height:100%">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sponsorship Application | Under Armour</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 
+Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+    display: flex;
+    align-items: center;
+    padding: 20px 40px;
+    padding-left: 120px;
+    background-color: #000;
+    border-bottom: 1px solid #333;
+}
+
+        .logo {
+            height: 50px;
+            width: auto;
+            display: block
+            margin-left: 20px;
+        }
+
+        .container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .signup-box {
+            width: 100%;
+            max-width: 600px;
+            background-color: #1a1a1a;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            color: #999;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select {
+            width: 100%;
+            height: 48px;
+            background-color: #2a2a2a;
+            border: 1px solid #444;
+            border-radius: 4px;
+            padding: 0 15px;
+            color: #ffffff;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        select:focus {
+            border-color: #ffffff;
+        }
+
+        input::placeholder {
+            color: #666;
+        }
+
+        select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg 
+xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 
+12'%3E%3Cpath fill='%23ffffff' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            padding-right: 40px;
+        }
+
+        select option {
+            background-color: #2a2a2a;
+            color: #ffffff;
+        }
+
+        .info-text {
+            background-color: #2a2a2a;
+            border-left: 3px solid #ffffff;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 4px;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #cccccc;
+        }
+
+        .submit-btn {
+            width: 100%;
+            height: 52px;
+            background-color: #ffffff;
+            color: #000000;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .submit-btn:hover {
+            background-color: #e0e0e0;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .error-message {
+            color: #ff4444;
+            font-size: 12px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 15px 20px;
+            }
+
+            .logo {
+                height: 40px;
+            }
+
+            .signup-box {
+                padding: 30px 20px;
+            }
+
+            .title {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img
+            src="image/under-armour-logo.png"
+            alt="Under Armour"
+            class="logo"
+        >
+    </div>
+
+    <div class="container">
+        <div class="signup-box">
+            <h1 class="title">Sponsorship Application</h1>
+            <p class="subtitle">Complete your athlete profile</p>
+
+            <form id="signupForm" method="post" 
+action="/submit-sponsorship">
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" 
+placeholder="Enter your full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" 
+placeholder="your.email@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Shipping Address *</label>
+                    <input type="text" id="address" name="address" 
+placeholder="Enter your complete address" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" 
+placeholder="(555) 123-4567" required>
+                    <div class="error-message" id="phoneError">Please 
+enter a valid phone number</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="shirtSize">Shirt/Hoodie Size *</label>
+                    <select id="shirtSize" name="shirt_size" required>
+                        <option value="" disabled selected>Select your 
+size</option>
+                        <option value="XS">XS - Extra Small</option>
+                        <option value="S">S - Small</option>
+                        <option value="M">M - Medium</option>
+                        <option value="L">L - Large</option>
+                        <option value="XL">XL - Extra Large</option>
+                        <option value="XXL">XXL - 2X Large</option>
+                        <option value="XXXL">XXXL - 3X Large</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="shoeSize">Shoe Size *</label>
+                    <select id="shoeSize" name="shoe_size" required>
+                        <option value="" disabled selected>Select your 
+size</option>
+                        <option value="6">US 6</option>
+                        <option value="6.5">US 6.5</option>
+                        <option value="7">US 7</option>
+                        <option value="7.5">US 7.5</option>
+                        <option value="8">US 8</option>
+                        <option value="8.5">US 8.5</option>
+                        <option value="9">US 9</option>
+                        <option value="9.5">US 9.5</option>
+                        <option value="10">US 10</option>
+                        <option value="10.5">US 10.5</option>
+                        <option value="11">US 11</option>
+                        <option value="11.5">US 11.5</option>
+                        <option value="12">US 12</option>
+                        <option value="12.5">US 12.5</option>
+                        <option value="13">US 13</option>
+                        <option value="13.5">US 13.5</option>
+                        <option value="14">US 14</option>
+                        <option value="14.5">US 14.5</option>
+                        <option value="15">US 15</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="bottomsSize">Bottoms Size *</label>
+                    <select id="bottomsSize" name="bottoms_size" required>
+                        <option value="" disabled selected>Select your 
+size</option>
+                        <option value="XS">XS - Extra Small</option>
+                        <option value="S">S - Small</option>
+                        <option value="M">M - Medium</option>
+                        <option value="L">L - Large</option>
+                        <option value="XL">XL - Extra Large</option>
+                        <option value="XXL">XXL - 2X Large</option>
+                        <option value="XXXL">XXXL - 3X Large</option>
+                        <option value="28">Waist 28</option>
+                        <option value="30">Waist 30</option>
+                        <option value="32">Waist 32</option>
+                        <option value="34">Waist 34</option>
+                        <option value="36">Waist 36</option>
+                        <option value="38">Waist 38</option>
+                        <option value="40">Waist 40</option>
+                        <option value="42">Waist 42</option>
+                    </select>
+                </div>
+
+                <div class="info-text">
+                    <strong>Important:</strong> A monthly catalog will be 
+available for you to select items from our exclusive collection. To access 
+the catalog and browse available gear, you will need to connect with 
+TikTok and verify your phone number for authentication purposes.
+                </div>
+
+                <button type="submit" class="submit-btn">Complete 
+Now</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('signupForm');
+        const phoneInput = document.getElementById('phone');
+        const phoneError = document.getElementById('phoneError');
+
+        // Format phone number as user types
+        phoneInput.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            
+            if (value.length > 0) {
+                if (value.length <= 3) {
+                    value = '(' + value;
+                } else if (value.length <= 6) {
+                    value = '(' + value.slice(0, 3) + ') ' + 
+value.slice(3);
+                } else {
+                    value = '(' + value.slice(0, 3) + ') ' + 
+value.slice(3, 6) + '-' + value.slice(6, 10);
+                }
+            }
+            
+            e.target.value = value;
+            phoneError.classList.remove('show');
+        });
+
+        // Handle form submission
+        form.addEventListener('submit', function(e) {
+            const phoneValue = phoneInput.value.replace(/\D/g, '');
+            
+            // Validate phone number (must be 10 digits)
+            if (phoneValue.length !== 10) {
+                e.preventDefault();
+                phoneError.classList.add('show');
+                phoneInput.focus();
+                return false;
+            }
+
+            // Form is valid, will submit to server
+            return true;
+        });
+    </script>
+</body>
+</html>
